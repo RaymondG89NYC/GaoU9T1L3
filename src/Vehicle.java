@@ -12,6 +12,14 @@ public class Vehicle {
     public double calculateTollPrice() {
         return tollFee * passengers;
     }
+    public void printInfo(){
+        System.out.println("License: " + licensePlate);
+        System.out.println("Toll Fee: " + tollFee);
+        System.out.println("Passengers: " + passengers);
+    }
+    public void discrimination(){
+        System.out.println("I am either a vehicle, a car, or a truck. I am NOT a taxi. boo taxi!");
+    }
 
     public String getLicensePlate(){
         return licensePlate;

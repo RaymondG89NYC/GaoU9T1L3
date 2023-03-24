@@ -8,12 +8,12 @@ public class Car extends Vehicle {
         discountApplied = false;   // default value
     }
 
-    public void printCar(){
-        System.out.println("License: " + getLicensePlate());
-        System.out.println("Fee: " + getTollFee());
-        System.out.println("Passengers: " + getPassengers());
-        System.out.println("Electric: " + electric);
-        System.out.println("Discount: " + discountApplied);
+    @Override
+    public double calculateTollPrice() {
+        if(getPassengers() >= 4){
+            return getTollFee()*4;
+        }
+        return super.calculateTollPrice();
     }
 
     public boolean isElectric() {
@@ -31,6 +31,14 @@ public class Car extends Vehicle {
             return false;
         }
     }
+
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Electric: " + electric);
+        System.out.println("Discount: " + discountApplied);
+    }
+
     public void applyDiscount(){
         if(!discountApplied){
             if(electric){
